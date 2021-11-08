@@ -29,7 +29,7 @@
                                     <td>{{$employee->last_name}}</td>
                                     <td>
                                         <form action="" method="POST">
-                                            <a href="" title="show">
+                                            <a href="{{URL::to('/')}}/employees/{{$employee->id}}" title="show">
                                                 <i class="fas fa-eye text-success  fa-lg"></i>
                                             </a>
                                         </form>

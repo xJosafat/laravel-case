@@ -61,12 +61,13 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Employee  $employee
-     * @return Response
+     * @param  string $employee
+     * @return Application|Factory|View
      */
-    public function show(Employee $employee)
+    public function show(string $employee)
     {
-        //
+        $employee = Employee::where('id',$employee)->get()[0];
+        return view('employees.show', compact('employee'));
     }
 
     /**
@@ -95,11 +96,12 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Employee  $employee
-     * @return Response
+     * @param  String  $employee
+     * @return Application|Factory|View
      */
-    public function destroy(Employee $employee)
+    public function destroy(string $employee)
     {
-        //
+        Employee::where('id',$employee)->delete();
+        return view('employees.delete', compact('employee'));
     }
 }

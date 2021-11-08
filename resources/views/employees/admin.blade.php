@@ -29,17 +29,15 @@
                                     <td>{{$employee->last_name}}</td>
                                     <td>
                                         <form action="" method="POST">
-                                            <a href="" title="show">
+                                            <a href="{{URL::to('/')}}/employees/{{$employee->id}}" title="show">
                                                 <i class="fas fa-eye text-success  fa-lg"></i>
                                             </a>
                                             <a href="">
                                                 <i class="fas fa-edit  fa-lg"></i>
                                             </a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                                            <a href="{{URL::to('/')}}/employeesAdmin/{{$employee->id}}/delete" title="delete">
                                                 <i class="fas fa-trash fa-lg text-danger"></i>
-                                            </button>
+                                            </a>
                                         </form>
                                     </td>
                                 </tr>
