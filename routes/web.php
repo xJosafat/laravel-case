@@ -37,6 +37,12 @@ Route::post('/employeesAdmin', 'App\Http\Controllers\EmployeeController@store')
 Route::get('/employees/{id}', [Controllers\EmployeeController::class, 'show'])
     ->middleware(['auth'])->name('show employee');
 
+Route::get('/employeesAdmin/{id}/edit', [Controllers\EmployeeController::class, 'edit'])
+    ->middleware(['auth'])->name('edit employee');
+
+Route::post('/employeesAdmin/{id}', 'App\Http\Controllers\EmployeeController@update')
+    ->middleware(['auth'])->name('update employee');
+
 // ToDo: Update method to DELETE instead GET
 Route::get('/employeesAdmin/{id}/delete', [Controllers\EmployeeController::class, 'destroy'])
     ->middleware(['auth'])->name('delete employee');

@@ -76,24 +76,28 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Employee  $employee
-     * @return Response
+     * @param String $employee
+     * @return Application|Factory|View
      */
-    public function edit(Employee $employee)
+    public function edit(String $employee)
     {
-        //
+        $employee = Employee::where('id',$employee)->get()[0];
+        return view('employees.edit', compact('employee'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  \App\Models\Employee  $employee
-     * @return Response
+     * @param String $employee
+     * @return RedirectResponse
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, String $employee): RedirectResponse
     {
-        //
+        $employee = Employee::findOrFail($employee);
+        $input = $request->all();
+        $employee->fill($input)->save();
+        return redirect()->back();
     }
 
     /**

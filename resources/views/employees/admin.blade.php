@@ -32,7 +32,7 @@
                                             <a href="{{URL::to('/')}}/employees/{{$employee->id}}" title="show">
                                                 <i class="fas fa-eye text-success  fa-lg"></i>
                                             </a>
-                                            <a href="">
+                                            <a href="{{URL::to('/')}}/employeesAdmin/{{$employee->id}}/edit" title="edit">
                                                 <i class="fas fa-edit  fa-lg"></i>
                                             </a>
                                             <a href="{{URL::to('/')}}/employeesAdmin/{{$employee->id}}/delete" title="delete">
