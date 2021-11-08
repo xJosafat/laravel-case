@@ -22,6 +22,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/employees', 'App\Http\Controllers\EmployeeController@index')->name('employees');
+Route::get('/employees', 'App\Http\Controllers\EmployeeController@index')
+    ->middleware(['auth'])->name('employees');
+
+Route::get('/employeesAdmin', 'App\Http\Controllers\EmployeeController@admin')
+    ->middleware(['auth'])->name('employeesAdmin');
 
 require __DIR__.'/auth.php';

@@ -25,6 +25,19 @@ class EmployeeController extends Controller
     }
 
     /**
+     * Display a CRUD listing of the resource.
+     *
+     * @return Application|Factory|View
+     */
+    public function admin()
+    {
+        $employees = Employee::select("*")->orderBy('last_name','asc')->paginate(10);
+
+        return view('employees.admin', compact('employees'))
+            ->with('i', (request()->input('page', 1) - 1) * 20);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return Response
