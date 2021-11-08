@@ -28,6 +28,12 @@ Route::get('/employees', 'App\Http\Controllers\EmployeeController@index')
 Route::get('/employeesAdmin', 'App\Http\Controllers\EmployeeController@admin')
     ->middleware(['auth'])->name('employeesAdmin');
 
+Route::get('/employeesAdmin/create', 'App\Http\Controllers\EmployeeController@create')
+    ->middleware(['auth'])->name('create employee');
+
+Route::post('/employeesAdmin', 'App\Http\Controllers\EmployeeController@store')
+    ->middleware(['auth'])->name('store employee');
+
 Route::get('/employees/{id}', [Controllers\EmployeeController::class, 'show'])
     ->middleware(['auth'])->name('show employee');
 

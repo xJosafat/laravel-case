@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-lg-12 margin-tb">
                                 <div class="pull-right">
-                                    <a class="btn btn-success" href="" title="New employee"> <i class="fas fa-plus-circle"></i>
+                                    <a class="btn btn-success" href="{{URL::to('/')}}/employeesAdmin/create" title="New employee"> <i class="fas fa-plus-circle"></i>
                                     </a>
                                 </div>
                             </div>

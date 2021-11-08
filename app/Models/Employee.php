@@ -40,7 +40,8 @@ class Employee extends Model
      *
      * @var array
      */
-    //protected $casts = [
-    //    'email_verified_at' => 'datetime',
-    //];
+    protected $casts = [
+        'birth_date' => 'date',
+        'joining_date' => 'date',
+    ];
 }
