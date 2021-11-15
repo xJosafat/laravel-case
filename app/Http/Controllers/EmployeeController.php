@@ -58,6 +58,7 @@ class EmployeeController extends Controller
     {
         $input = $request->all();
         Employee::create($input);
+        $request->session()->flash('message', 'Employee created successfully!');
         return redirect()->back();
     }
 
@@ -97,6 +98,7 @@ class EmployeeController extends Controller
         $employee = Employee::findOrFail($employee);
         $input = $request->all();
         $employee->fill($input)->save();
+        $request->session()->flash('message', 'Employee updated!');
         return redirect()->back();
     }
 

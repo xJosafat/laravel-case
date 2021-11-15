@@ -19,11 +19,10 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Employee ID {{$employee}} removed successfully:</strong>
+                                <p class="alert alert-success">Employee ID {{$employee}} removed successfully</p>
                             </div>
                         </div>
                     </div>
