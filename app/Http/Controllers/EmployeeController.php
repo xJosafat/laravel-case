@@ -56,6 +56,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateForm($request);
         $input = $request->all();
         Employee::create($input);
         $request->session()->flash('message', 'Employee created successfully!');
@@ -95,6 +96,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, String $employee): RedirectResponse
     {
+        $this->validateForm($request);
         $employee = Employee::findOrFail($employee);
         $input = $request->all();
         $employee->fill($input)->save();
@@ -112,5 +114,31 @@ class EmployeeController extends Controller
     {
         Employee::where('id',$employee)->delete();
         return view('employees.delete', compact('employee'));
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    private function validateForm(Request $request) {
+        return $request->validate([
+            'name_prefix' => ['required', 'max:255', 'string'],
+            'first_name' => ['required', 'max:255', 'string'],
+            'middle_initial' => ['required', 'max:1', 'alpha'],
+            'last_name' => ['required', 'max:255', 'string'],
+            'gender' => ['required', 'max:1', 'alpha'],
+            'email' => ['required', 'email:rfc', 'max:255'],
+            'father_name' => ['required', 'max:255', 'string'],
+            'mother_name' => ['required', 'max:255', 'string'],
+            'mother_maiden_name' => ['required', 'max:255', 'string'],
+            'birth_date' => ['required', 'date'],
+            'joining_date' => ['required', 'date'],
+            'salary' => ['required', 'numeric'],
+            'ssn' => ['required', 'max:255', 'string'],
+            'phone' => ['required', 'max:255', 'string'],
+            'city' => ['required', 'max:255', 'string'],
+            'state' => ['required', 'max:255', 'string'],
+            'zip' => ['required', 'max:255', 'string'],
+        ]);
     }
 }
