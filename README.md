@@ -47,3 +47,5 @@ Currently, in order to make any customer an admin, the following mysql command s
 ```bash
 >> mysql UPDATE users SET admin = 1 WHERE email = 'user@example.com';
 ```
+
+Login with any previously created users at http://0.0.0.0/login
